@@ -1,0 +1,33 @@
+<h1>GeekTwitter</h1>
+<h3>Recipe詳細</h3>
+<div class="recipe">
+  <p><%= @recipe.name %></p>
+  <p><%= @recipe.material %></p>
+  <p><%= @recipe.cost %></p>
+  <p><%= @recipe.time %></p>
+  <p><%= @recipe.process %></p>
+  <p><%= @recipe.created_at %></p>
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(@recipe) %>
+        <%= link_to recipe_like_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :delete } do %>
+            <p>いいねを取り消す</p><%= @recipe.likes.count %>
+        <% end %>
+      <% else %>
+       <%= link_to recipe_likes_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :post }  do %>
+            <p>いいね</p><%= @recipe.likes.count %>
+       <% end %>
+      <% end %>
+    <% else %>
+      <p>いいねの数 = </p><%= @recipe.likes.count %>
+    <% end %>
+  <%= link_to "編集する", edit_recipe_path(@recipe.id) %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @recipe.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<%= link_to "Recipe一覧に戻る", recipes_path %>
+
+

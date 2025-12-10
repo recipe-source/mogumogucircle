@@ -1,0 +1,29 @@
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="perfume-container">
+        <div class="col-12">
+            <p>Q1. 費用</p>
+        </div>
+        <div class="col-6">
+            <%= f.radio_button :question1, "1", id: "custom_id1" %>
+            <label for="custom_id1">300円</label>
+            <%= f.radio_button :question1, "2", id: "custom_id2" %>
+            <label for="custom_id2">500円</label>
+            <%= f.radio_button :question1, "3", id: "custom_id3" %>
+            <label for="custom_id3">1000円</label>
+        </div>
+        <div class="col-12">
+            <p>Q2. 時間</p>
+        </div> 
+        <div class="col-6">
+            <%= f.radio_button :question2, "1", id: "custom_id4" %>
+            <label for="custom_id4">15分</label>
+            <%= f.radio_button :question2, "2", id: "custom_id5" %>
+            <label for="custom_id5">30分</label>
+            <%= f.radio_button :question2, "3", id: "custom_id6" %>
+            <label for="custom_id6">45分</label>
+        </div>   
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit " 結果 " %>
+    </div>
+<% end %>

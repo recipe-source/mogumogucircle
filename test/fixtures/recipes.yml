@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  material: MyString
+  process: MyText
+  cost: 1
+  time: 1
+
+two:
+  name: MyString
+  material: MyString
+  process: MyText
+  cost: 1
+  time: 1
