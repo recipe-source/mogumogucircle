@@ -1,39 +1,39 @@
 <h1>mogumogucircle</h1>
-<h3>新規recipe</h3>
+<h3>新規レシピ</h3>
 
 <%= form_for @recipe do |f| %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :料理名 %>
     <%= f.text_field :name, size: 30 %>
   </div>
 
   <div class="field">
-    <%= f.label :material %>
+    <%= f.label :材料 %>
     <%= f.text_field :material, size: 20 %>
   </div>
 
   <div class="field">
-    <%= f.label :cost %>
+    <%= f.label :費用 %>
     <%= f.number_field :cost %>
   </div>
 
   <div class="field">
-    <%= f.label :time %>
+    <%= f.label :時間 %>
     <%= f.number_field :time %>
   </div>
 
   <div class="field">
-    <%= f.label :process %>
+    <%= f.label :手順 %>
     <%= f.text_area :process, size: "30x2" %>
   </div>
 
   <div class="field">
-    <%= f.label :image %>
+    <%= f.label :画像 %>
     <%= f.file_field :image %>
   </div>
 
-  <%= f.submit "Recipeを投稿する" %>
+  <%= f.submit "レシピを投稿する%>
 <% end %>
 
-<%= link_to "Recipe一覧に戻る", recipes_path %>
+<%= link_to "レシピ一覧に戻る", recipes_path %>
