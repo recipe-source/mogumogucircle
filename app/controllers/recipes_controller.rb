@@ -11,15 +11,17 @@ class RecipesController < ApplicationController
     end
 
   def index
-    if params[:search] == nil
-        @recipes= Recipe.all
-      elsif params[:search] == ''
-        @recipes= Recipe.all
-      else
-        #部分検索
-        @recipes = Recipe.where("body LIKE ? ",'%' + params[:search] + '%')
-      end
+  if params[:search].present?
+    @recipes = Recipe.where(
+      "name LIKE ? OR material LIKE ? OR process LIKE ?",
+      "%#{params[:search]}%",
+      "%#{params[:search]}%",
+      "%#{params[:search]}%"
+    )
+  else
+    @recipes = Recipe.all
   end
+end
 
   def create
     recipe = Recipe.new(recipe_params)
