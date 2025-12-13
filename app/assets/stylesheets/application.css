@@ -13,10 +13,3 @@
  *= require_tree .
  *= require_self
  */
-body {
-  font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #F0F0F0 0%, #FFFFFF 100%);
-  color: #222;
-}

@@ -2,15 +2,20 @@
 <%= link_to "診断を始める", new_perfume_path, class: "link" %>
 <h3>Recipe一覧</h3>
 
-<h3>投稿を検索</h3>
- <%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
+<% if user_signed_in? %>
+ <h3>投稿を検索</h3>
+  <%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
    <%= text_field_tag :search %>
    <%= submit_tag '検索する'  %>
+ <% end %>
 <% end %>
 
-<%= link_to "新規投稿へ", new_recipe_path %>
+<% if user_signed_in? %>
+ <%= link_to "新規投稿へ", new_recipe_path %>
+<% end %>
 
-<% @recipes.each do |t| %>
+<% if user_signed_in? %>
+ <% @recipes.each do |t| %>
 
    <div class="like-section">
       <% if user_signed_in? %>
@@ -48,4 +53,5 @@
        </div>
     <%= t.user.email %>
 
+ <% end %>
 <% end %>
