@@ -1,6 +1,56 @@
+<div class="tweets-container">
+
+<% if user_signed_in? %>
 <h1>おすすめれしぴ診断スタート</h1>
-<%= link_to "診断を始める", new_perfume_path, class: "link" %>
+<% end %>
+
+<% if user_signed_in? %>
+<%= link_to "時間と費用からレシピを探す", new_perfume_path, class: "link" %>
+<% end %>
+
+<p class="introduction-message">
+　コンビニや外食に<br>頼りがちな学生に
+</p>
+
+<p class="body-message">
+　健康に
+</p>
+
+<p class="conclusion-message">
+　おいしく
+</p>
+
+<p class="a-message">
+　♢♢♢
+</p>
+
+<p class="b-message">
+　♢♢♢
+</p>
+
+<p class="c-message">
+　♢♢♢
+</p>
+
+<%= image_tag "chicken.png", class: "top-page-decoration" %>
+<%= image_tag "curry.png", class: "a-decoration" %>
+<%= image_tag "ham.png", class: "b-decoration" %>
+<%= image_tag "kitchen.png", class: "c-decoration" %>
+<%= image_tag "miso.png", class: "d-decoration" %>
+<%= image_tag "nikujaga.png", class: "e-decoration" %>
+<%= image_tag "obento.png", class: "f-decoration" %>
+<%= image_tag "oyakodon.png", class: "g-decoration" %>
+<%= image_tag "pasta.png", class: "h-decoration" %>
+<%= image_tag "salad.png", class: "i-decoration" %>
+<%= image_tag "sope.png", class: "j-decoration" %>
+<%= image_tag "soup.png", class: "k-decoration" %>
+<%= image_tag "thai.png", class: "l-decoration" %>
+<%= image_tag "white.png", class: "m-decoration" %>
+
+
+<% if user_signed_in? %>
 <h3>Recipe一覧</h3>
+<% end %>
 
 <% if user_signed_in? %>
  <h3>投稿を検索</h3>

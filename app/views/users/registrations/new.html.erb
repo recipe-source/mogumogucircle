@@ -1,32 +1,71 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="form-wrapper"> 
 
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+         
 
-  <div class="field">
-    <%= f.label :Eメール %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
+        <h2><%= t('.sign_up') %></h2> 
+        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> 
 
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <%= render "users/shared/error_messages", resource: resource %> 
 
-  <div class="field">
-    <%= f.label :パスワード再確認 %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+ 
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= render "users/shared/links" %>
+          <div class="field"> 
+
+           <%= f.label :名前 %><br /> 
+
+           <%= f.text_field :name, autofocus: true %> 
+
+          </div> 
+
+ 
+
+          <div class="field"> 
+
+           <%= f.label :Eメール %><br /> 
+
+           <%= f.email_field :email, autofocus: true, autocomplete: "email" %> 
+
+          </div> 
+
+ 
+
+          <div class="field"> 
+
+           <%= f.label :パスワード %> 
+
+            <% if @minimum_password_length %> 
+
+            <em>(<%= @minimum_password_length %> characters minimum)</em> 
+
+            <% end %><br /> 
+
+            <%= f.password_field :password, autocomplete: "new-password" %> 
+
+          </div> 
+
+ 
+
+          <div class="field"> 
+
+            <%= f.label :パスワード再確認 %> 
+
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %> 
+
+          </div> 
+
+ 
+
+          <div class="actions"> 
+
+            <%= f.submit "Sign up" %> 
+
+          </div> 
+
+        <% end %> 
+
+        <%= render "users/shared/links" %> 
+
+      </div> 
+
+</div> 

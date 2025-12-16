@@ -1,0 +1,433 @@
+header { 
+    position: relative;  
+    z-index: 1000;  
+} 
+
+
+header ul { 
+    margin-top: 20px;  
+    padding-left: 20px; 
+    list-style-type: none; 
+} 
+
+
+header p { 
+    margin-top: 0px;  
+    padding-left: 20px; 
+} 
+
+
+.introduction-message { 
+  position: absolute;  
+    left: 70px;  
+    top: 510px; 
+  font-size: 1.1em;   /* 文字の大きさを調整 */ 
+  color: #9b9999;        /* 文字の色を濃い灰色などに設定 */ 
+  margin: 30px 0;     /* 上下にも適度な余白を追加して、周囲の要素と区別する */ 
+  font-weight: bold;  /* 太字にする（お好みで） */ 
+} 
+
+ 
+
+.body-message { 
+  position: absolute;  
+    left: 815px;  
+    top: 130px; 
+  display: block; 
+  white-space: nowrap; 
+  transform: rotate(270deg); 
+  transform-origin: top left; 
+  font-size: 1.1em;   /* 文字の大きさを調整 */ 
+  color: #9b9999;        /* 文字の色を濃い灰色などに設定 */ 
+  margin: 30px 0;     /* 上下にも適度な余白を追加して、周囲の要素と区別する */ 
+  font-weight: bold;  /* 太字にする（お好みで） */ 
+} 
+
+ 
+
+.conclusion-message { 
+
+  position: absolute;  
+
+    left: 1075px;  
+
+    top: 550px; 
+
+  display: block; 
+
+  white-space: nowrap; 
+
+  transform: rotate(90deg); 
+
+  transform-origin: top left; 
+
+  font-size: 1.1em;   /* 文字の大きさを調整 */ 
+
+  color: #9b9999;        /* 文字の色を濃い灰色などに設定 */ 
+
+  margin: 30px 0;     /* 上下にも適度な余白を追加して、周囲の要素と区別する */ 
+
+  font-weight: bold;  /* 太字にする（お好みで） */ 
+
+} 
+
+ 
+
+.a-message { 
+
+    position: absolute;  
+
+    left: 560px;  
+
+    top: 145px; 
+
+    font-size: 1.1em; 
+
+    color: #808080; 
+
+} 
+
+ 
+
+.b-message { 
+
+    position: absolute;  
+
+    left: 365px;  
+
+    top: 600px; 
+
+    font-size: 1.1em; 
+
+    color: #808080; 
+
+} 
+
+ 
+
+.c-message { 
+
+    position: absolute;  
+
+    left: 998px;  
+
+    top: 340px; 
+
+    font-size: 1.1em; 
+
+    color: #808080; 
+
+    transform: rotate(90deg); 
+
+} 
+
+ 
+
+.top-page-decoration { 
+
+    position: absolute;  
+
+    left: 1090px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 48px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 168px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.a-decoration { 
+
+    position: absolute;  
+
+    left: 20px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 338px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 123px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.b-decoration { 
+
+    position: absolute;  
+
+    left: 20px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 222px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 123px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.c-decoration { 
+
+    position: absolute;  
+
+    left: 843px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 0px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 164px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.d-decoration { 
+
+    position: absolute;  
+
+    left: 564px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 170px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 130px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.e-decoration { 
+
+    position: absolute;  
+
+    left: 360px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 302px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 145px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.f-decoration { 
+
+    position: absolute;  
+
+    left: 878px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 269px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 85px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.g-decoration { 
+
+    position: absolute;  
+
+    left: 325px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 496px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 136px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.h-decoration { 
+
+    position: absolute;  
+
+    left: 142px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 222px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 160px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.i-decoration { 
+
+    position: absolute;  
+
+    left: 870px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 448px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 180px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.j-decoration { 
+
+    position: absolute;  
+
+    left: 353px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 14px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 133px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.k-decoration { 
+
+    position: absolute;  
+
+    left: 576px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 425px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 190px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+ 
+
+.l-decoration { 
+
+    position: absolute;  
+
+    left: 1041px;        /* 画面左端からの距離（右へ移動） */ 
+
+    top: 243px;          /* 画面上端からの距離（下へ移動） */ 
+
+    width: 211px;       /* 例: 画像の幅を固定 */ 
+
+    height: auto;       /* 比率を維持 */ 
+
+    transform: none;  
+
+    z-index: 10; 
+
+    transition: transform 0.3s ease-in-out; 
+
+} 
+
+
+.top-page-decoration:hover, .a-decoration:hover, .b-decoration:hover, .c-decoration:hover,  
+.d-decoration:hover, .e-decoration:hover, .f-decoration:hover, .g-decoration:hover,  
+.h-decoration:hover, .i-decoration:hover, .j-decoration:hover, .k-decoration:hover,  
+.l-decoration:hover { 
+    transform: scale(1.1);  
+    z-index: 50;  
+    opacity: 0.8;  
+} 
+
+
+.m-decoration { 
+    position: absolute;  
+    left: 0px;        /* 画面左端からの距離（右へ移動） */ 
+    top: 0px;          /* 画面上端からの距離（下へ移動） */ 
+    width: 1280px;       /* 例: 画像の幅を固定 */ 
+    height: 667px;       /* 比率を維持 */ 
+    transform: none;  
+    opacity: 0.4; 
+    z-index: 20; 
+    pointer-events: none; 
+} 
+
+ 
