@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<div class="center-container">  <%# ← 1行目に追記 %>
+  <div class="form-wrapper glass-form-panel">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+ <h2>ログイン</h2>
+
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
+   <div class="field">
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
+   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :パスワードを保存する %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
+    <%= render "users/shared/links" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>

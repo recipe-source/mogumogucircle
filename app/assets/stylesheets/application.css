@@ -49,141 +49,69 @@
  
 
 header { 
-
   background-color: transparent;  
-
 } 
 
- 
 
 html, body { 
-
     height: 100%;  
-
     margin: 0;  
-
     padding: 0; 
-
 } 
-
- 
-
- 
-
- 
 
 body { 
-
     background-repeat: no-repeat; 
-
     background-size: cover; 
-
     background-attachment: fixed; 
-
     background-position: center center; 
-
     font-family: 'M PLUS Rounded 1c', "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 
-
     font-weight: 400; 
-
     height: 100%; 
-
     margin: 0; 
-
 } 
-
  
-
 .site-logo { 
-
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif; 
-
     font-weight: 100; 
-
     font-size: 1.8em;  
-
     font-weight: bold;  
-
     color: #111; 
-
 } 
-
  
-
  .tweets-container { 
-
   background-color: transparent;  
-
   padding: 0;                     
-
 } 
-
  
-
  .tweets-container .diagnosis-title { 
-
     font-size: 1em; /* お好みの大きさに調整 */ 
-
     font-weight: bold;  
-
     color: #333;  
-
     margin-top: 20px; 
-
     margin-bottom: 10px; 
-
 } 
-
  
-
  .tweets-container .diagnosis-link { 
-
     font-size: 1.1em; /* お好みの大きさに調整 */ 
-
     color: black;  
-
     display: inline-block; /* 必要に応じてブロック化 */ 
-
     margin-bottom: 30px; 
-
 } 
-
  
-
 .nav-links a, 
-
 .nav-links button { 
-
   text-decoration: none;      
-
-   
-
-  
-
   color: black;           
-
-   
-
   font-size: 16px; 
-
   padding: 5px; 
-
   /* button_toのボタンをリンクのように見せるための設定 */ 
-
   background: none; 
-
   border: none; 
-
   cursor: pointer; 
-
 } 
-
  
-
 .nav-links a:hover, 
-
 .nav-links button:hover { 
-
   text-decoration: underline; 
+}
 
-} 

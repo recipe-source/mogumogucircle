@@ -1,13 +1,14 @@
 <div class="tweets-container">
 
-<% if user_signed_in? %>
+<% unless user_signed_in? %>
 <h1>おすすめれしぴ診断スタート</h1>
 <% end %>
 
-<% if user_signed_in? %>
+<% unless user_signed_in? %>
 <%= link_to "時間と費用からレシピを探す", new_perfume_path, class: "link" %>
 <% end %>
 
+<% unless user_signed_in? %>
 <p class="introduction-message">
 　コンビニや外食に<br>頼りがちな学生に
 </p>
@@ -46,7 +47,7 @@
 <%= image_tag "soup.png", class: "k-decoration" %>
 <%= image_tag "thai.png", class: "l-decoration" %>
 <%= image_tag "white.png", class: "m-decoration" %>
-
+<% end %>
 
 <% if user_signed_in? %>
 <h3>Recipe一覧</h3>
@@ -91,17 +92,17 @@
         <% end %>
     
         <%= t.name %>
-        <%= t.material %>
-        <%= t.process %>
-        <%= t.cost %>
-        <%= t.time %>
-        <%= t.created_at %>
+        <%# <%= t.material %>
+        <%# <%= t.process %>
+        <%# <%= t.cost %>
+        <%# <%= t.time %>
+        <%# <%= t.created_at %>
 
         <%= link_to "詳細へ", recipe_path(t.id) %>
         <%= link_to "編集する", edit_recipe_path(t.id) %>
-        <%= link_to "削除する", recipe_path(t.id), method: :delete %>
+        <%= link_to '削除する', recipe_path(t.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
        </div>
-    <%= t.user.email %>
+    <%# <%= t.user.email %>
 
  <% end %>
 <% end %>

@@ -168,23 +168,14 @@ header p {
  
 
 .b-decoration { 
-
     position: absolute;  
-
     left: 20px;        /* 画面左端からの距離（右へ移動） */ 
-
     top: 222px;          /* 画面上端からの距離（下へ移動） */ 
-
     width: 123px;       /* 例: 画像の幅を固定 */ 
-
     height: auto;       /* 比率を維持 */ 
-
     transform: none;  
-
     z-index: 10; 
-
     transition: transform 0.3s ease-in-out; 
-
 } 
 
  

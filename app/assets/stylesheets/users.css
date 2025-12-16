@@ -1,0 +1,154 @@
+.sign-up-container { 
+    min-height: 100vh; 
+    width: 100%; 
+    position: relative; 
+    overflow: hidden;  
+    background-image: url('/assets/tomato.png'); 
+    background-size: cover;  
+    background-position: center center;  
+    display: flex; 
+    justify-content: center;  
+    align-items: center; 
+    padding: 50px 0;  
+} 
+ 
+ 
+.sign-up-container::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(255, 255, 255, 0.4);  
+    z-index: 1; 
+    pointer-events: none;  
+}
+ 
+ 
+ 
+.form-wrapper { 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 30px 40px; 
+    border-radius: 10px;  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+    width: 400px;  
+    max-width: 90%; 
+    z-index: 2;  
+    position: relative;  
+} 
+ 
+ 
+.form-wrapper h2 { 
+    text-align: center; 
+    margin-bottom: 25px; 
+    font-size: 24px; 
+    color: #333; 
+} 
+
+
+.form-wrapper .field input[type="text"], 
+.form-wrapper .field input[type="email"], 
+.form-wrapper .field input[type="password"] { 
+    width: 100%; 
+    padding: 10px; 
+    margin: 5px 0 15px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+} 
+
+
+.sign-up-button { 
+    width: 100%; 
+    padding: 10px; 
+    background-color: #ffaa33; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    margin-top: 10px; 
+} 
+
+.center-container {
+    /* 画面全体に広がり、内部要素を中央に配置する */
+    display: flex;
+    justify-content: center; /* 水平方向の中央寄せ */
+    align-items: center;     /* 垂直方向の中央寄せ */
+    position: fixed;         /* 画面のスクロールに影響されないように */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+/* 2. ガラス板（フォームパネル）のスタイル */
+.glass-form-panel {
+    background-image: url('ita.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 520px;
+    max-width: 90%;
+    padding: 100px;
+    border-radius: 20px;
+    border: none !important;        /* ★ ガラス板の枠線を完全に削除 */
+    box-shadow: none !important;    /* ★ 影を完全に削除 */
+    background-color: transparent !important;
+}
+
+
+.glass-form-panel input[type="text"],
+.glass-form-panel input[type="email"],
+.glass-form-panel input[type="password"] {
+    width: 50% !important;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    display: block !important; /* ブロック要素にして中央寄せが可能にする */
+    margin-left: auto !important; /* 左マージンを自動調整 */
+    margin-right: auto !important; /* 右マージンを自動調整し、中央寄せを実現 */
+    box-sizing: border-box !important;
+}
+
+.glass-form-panel h2 {
+    text-align: center;
+    color: black; 
+    margin-top: 5px;
+    margin-bottom: 15px; /* タイトルの下により大きなスペースを確保 */
+}
+
+/* フォーム内のフィールドセット（ラベルと入力欄を囲む.field）の調整 */
+.glass-form-panel .field {
+    text-align: center !important; /* ラベル（メールアドレスなど）を中央に */
+    margin-bottom: 10px;
+    padding-left: 0; /* 以前の左寄せのためのpaddingをリセット */
+    padding-right: 0;
+}
+
+.glass-form-panel .actions {
+    text-align: center;
+    margin-top: 15px; /* フォーム下の要素に大きなスペースを確保 */
+}
+
+.glass-form-panel .actions a {
+    display: block; /* リンクをブロック要素にして中央寄せしやすくする */
+    margin-top: 8px; /* ログインボタンとの間に少しスペースを空ける */
+    color: #4b2b06; /* 濃い茶色など、まな板になじむ色に調整 */
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+.center-panel {
+    position: absolute;  
+    left: 20px;        /* 画面左端からの距離（右へ移動） */ 
+    top: 222px;          /* 画面上端からの距離（下へ移動） */ 
+    width: 123px;       /* 例: 画像の幅を固定 */ 
+    height: auto;       /* 比率を維持 */ 
+    transform: none;  
+    z-index: 100; 
+}
