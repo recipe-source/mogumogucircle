@@ -1,0 +1,39 @@
+.recipe-container h6 {
+    font-size: 1.5em; /* ★ 料理名のサイズ */
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.recipe-item-row {
+    display: flex;             /* ★ 横並びにする */
+    align-items: center;       
+    justify-content: space-between; /* 料理名とボタンを左右に離す */
+    margin-bottom: 10px;       
+    padding-right: 15px;       
+    border-bottom: 1px solid #eee; 
+}
+
+.detail-button {
+    background-color: transparent;
+    border: 1px solid #333;  
+    color: #333 !important;    
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;      
+    font-size: 0.9em;
+    white-space: nowrap;        
+}
+
+.detail-button:hover {
+    background-color: #333; /* 背景を黒に反転 */
+    color: white !important; /* 文字色を白に反転 */
+}
+
+.recipe-item-row h6 {
+    font-size: 1.5em; 
+    font-weight: bold; 
+    margin-top: 5px; /* 上下のmarginを調整 */
+    margin-bottom: 5px;
+}

@@ -86,40 +86,38 @@
 
 /* 2. ガラス板（フォームパネル）のスタイル */
 .glass-form-panel {
-    background-image: url('ita.png');
+    background-image: none;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 1000px;
-    height: 520px;
+    position: static; 
+    overflow: hidden;
+    width: 400px;
+    height: 480px;
     max-width: 90%;
-    padding: 100px;
+    padding: 30px;
     border-radius: 20px;
-    border: none !important;        /* ★ ガラス板の枠線を完全に削除 */
-    box-shadow: none !important;    /* ★ 影を完全に削除 */
-    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);      
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 
 .glass-form-panel input[type="text"],
 .glass-form-panel input[type="email"],
 .glass-form-panel input[type="password"] {
-    width: 50% !important;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    display: block !important; /* ブロック要素にして中央寄せが可能にする */
-    margin-left: auto !important; /* 左マージンを自動調整 */
-    margin-right: auto !important; /* 右マージンを自動調整し、中央寄せを実現 */
-    box-sizing: border-box !important;
+    background-color: rgba(255, 255, 255, 0.8) !important; 
+    color: #333; 
 }
 
-.glass-form-panel h2 {
-    text-align: center;
-    color: black; 
-    margin-top: 5px;
-    margin-bottom: 15px; /* タイトルの下により大きなスペースを確保 */
+
+.glass-form-panel h2,
+.glass-form-panel label {
+    color: #333 !important; /* 黒に近い色に戻す */
+}
+
+.glass-form-panel .actions a {
+    color: #007bff !important; /* リンクの色を標準に戻す */
 }
 
 /* フォーム内のフィールドセット（ラベルと入力欄を囲む.field）の調整 */
@@ -152,3 +150,63 @@
     transform: none;  
     z-index: 100; 
 }
+
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%); 
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%); /* 上に隠れた状態からスタート */
+    }
+    100% {
+        transform: translateY(0);    /* 下に降りてくる */
+    }
+}
+
+.right-image-container {
+    position: fixed;     /* 画面の右側に固定 */
+    right: 220px;         /* 右端からの距離（調整してください） */
+    top: 0;
+    width: 200px;        /* 画像を表示したい横幅 */
+    z-index: -1;         /* フォームの下に潜り込ませる */
+    display: flex;
+    flex-direction: column; /* 画像を縦一列に並べる */
+    
+    /* アニメーション設定 */
+    animation: slide-up 45s linear infinite;
+}
+
+/* 中の画像自体のサイズも指定する */
+.right-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.left-image-container {
+    position: fixed;     /* 画面の右側に固定 */
+    left: 220px;         /* 右端からの距離（調整してください） */
+    top: -600;
+    width: 200px;        /* 画像を表示したい横幅 */
+    z-index: -1;         /* フォームの下に潜り込ませる */
+    display: flex;
+    flex-direction: column; /* 画像を縦一列に並べる */
+    
+    /* アニメーション設定 */
+    animation: slide-down 45s linear infinite;
+}
+
+/* 中の画像自体のサイズも指定する */
+.right-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+

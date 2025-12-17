@@ -42,6 +42,8 @@
 
  @import "users"; 
 
+ @import "perfumes";
+
  
 
   
@@ -60,14 +62,12 @@ html, body {
 } 
 
 body { 
+  　font-family: "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
     background-repeat: no-repeat; 
     background-size: cover; 
     background-attachment: fixed; 
-    background-position: center center; 
-    font-family: 'M PLUS Rounded 1c', "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 
+    background-position: center center;  
     font-weight: 400; 
-    height: 100%; 
-    margin: 0; 
 } 
  
 .site-logo { 

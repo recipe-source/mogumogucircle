@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
     else
        redirect_to :action => "new"
     end
+ end
   
 
    def destroy
@@ -49,6 +50,4 @@ class RecipesController < ApplicationController
    def recipe_params
      params.require(:recipe).permit(:name, :material, :process, :cost, :time, :image)
    end
-  end
-
 end
