@@ -17,24 +17,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
- <header>
-  <h1 class="site-logo">Mogumogucircle</h1>
-  <div class="header-list">
-   <nav class="nav-links">
-    <ul>
-     <% if user_signed_in? %>
-      <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-     <% else %>
-      <li><%= link_to "▷新規登録", new_user_registration_path %></li>
-      <li><%= link_to "▷ログイン", new_user_session_path %></li>
-     <% end %>
-    </ul>
-     <p><%= link_to "▷時間と費用からレシピを探す", new_perfume_path %></p>
-    </ul>
-   </nav>
-  </div>
- </header>
+  <body class="<%= controller_path.gsub('/', '-') %> <%= action_name %>">
+ 
  <main class="page-container">
   <%= yield %>
  </main>

@@ -255,4 +255,120 @@ header p {
     pointer-events: none; 
 } 
 
+/* 全体の余白と背景 */
+.recipe-index-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fcfcfc;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 検索バーと投稿ボタンの調整 */
+.index-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.new-recipe-link {
+  background-color: #ff6347;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+/* グリッドレイアウト（レスポンシブ対応） */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* カードのデザイン */
+.recipe-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* 画像のような柔らかい影 */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 画像エリア */
+.card-visual {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* いいねバッジ（画像の右上に配置） */
+.like-badge-wrapper {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.like-badge {
+  background-color: #ff7675; /* 画像のような淡い赤 */
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* レシピ名とリンク */
+.card-info {
+  padding: 20px;
+}
+
+.recipe-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+}
+
+.detail-link:hover {
+  border-bottom: 1px solid #3498db;
+}
+
+.owner-menu a {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-left: 10px;
+  text-decoration: none;
+}
  

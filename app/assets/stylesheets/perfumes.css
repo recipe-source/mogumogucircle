@@ -37,3 +37,381 @@
     margin-top: 5px; /* 上下のmarginを調整 */
     margin-bottom: 5px;
 }
+
+.diagnosis-container {
+    position: relative;
+    min-height: 100vh; /* 画面全体の高さを確保 */
+    background-image: url("isi.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: 1; /* 基準のレイヤー */
+    padding-bottom: 50px; /* 下部に少し余白 */
+}
+
+/* 白い靄（オーバーレイ）を作る */
+.diagnosis-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* これで diagnosis-page 全体を覆う */
+    background-color: rgba(255, 255, 255, 0.4); /* 0.4をお好みで調整 */
+    z-index: 2; /* 背景(1)より上で、文字(10)より下 */
+    pointer-events: none; /* 下の要素をクリックできるようにする */
+}
+
+/* 文字やコンテンツを最前面に持ってくる */
+.tomato-header, .diagnosis-container {
+    position: relative;
+    z-index: 3; /* 靄(z-index: 2)よりもさらに上 */
+}
+
+.tomato-header {
+    position: relative;
+    height: 120px; /* ここを調整して短くする */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    z-index: 10; /* 靄よりも手前 */
+}
+
+.tomato-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); /* 白の濃さを調整 */
+    z-index: 2; /* 画像の上 */
+    pointer-events: none;
+}
+
+.diagnosis-page::after,
+.tomato-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); /* 靄の濃さ */
+    z-index: 5; /* 画像(1)より上で、文字(10)より下 */
+    pointer-events: none;
+}
+
+.header-content,
+.diagnosis-container {
+    position: relative;
+    z-index: 15; /* 靄(2)よりも確実に手前 */
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #313131 !important; /* 検索ボタンに近い濃いグレー */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 文字の周りに薄い白縁をつけてより見やすく */
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    /* ヘッダー画像自体にも少し靄を馴染ませるならここも調整 */
+    z-index: 1; 
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 3; /* 靄よりも上 */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 白いカード（大理石の上に乗る部分） */
+.diagnosis-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85); /* カードも少し透けさせる */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* ラジオボタンを横並びにする調整 */
+.col-6 {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #313131;  /* 検索ボタンと同じ色の枠線 */
+    border-radius: 20px;
+    color: #313131 !important;  /* 青色から濃いグレーに変更 */
+    text-decoration: none;   /* 下線を消す */
+    font-size: 0.9rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.3); /* 背景を少し白くして透けさせる */
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #313131;  /* 検索ボタンと同じ色で塗りつぶし */
+    color: #fff !important;  /* 文字を白に */
+}
+
+/* 詳細ページ専用のスタイル */
+.recipe-show-card {
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.recipe-detail-image {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.show-food-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.recipe-info p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.like-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.like-btn {
+    text-decoration: none;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.like-btn.active {
+    background: #ff6b6b;
+    color: white;
+}
+
+.recipe-footer-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* レシピ詳細のレイアウト調整 */
+.recipe-show-card {
+    max-width: 900px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: left; /* 基本は左寄せ */
+}
+
+.recipe-top-section {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.recipe-visual {
+    flex: 1.2; 
+}
+
+.recipe-title-display {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-left: 5px solid #ff6b6b;
+    padding-left: 15px;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.recipe-meta-info {
+    flex: 0.8;
+}
+
+.meta-item {
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.sub-caption {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.text-content, .process-text {
+    line-height: 1.8;
+    color: #555;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+}
+
+.text-content {
+    line-height: 1.4; /* 数値を小さくすると行間が詰まります（元は1.8） */
+    color: #555;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px 15px;
+    border-radius: 8px;
+    line-height: 1.2 !important;
+    white-space: pre-wrap;
+}
+
+.recipe-bottom-section {
+    width: 100%;       /* 横幅いっぱい */
+    margin-top: 30px;
+    clear: both;       /* 上の回り込みを完全に解除 */
+    display: block;
+}
+
+.process-text {
+    width: 100%;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.recipe-actions {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* スマホ等で見た時に縦に並ぶようにする設定 */
+@media (max-width: 768px) {
+    .recipe-top-section {
+        flex-direction: column;
+    }
+}
+
+.text-content p, .process-text p {
+    margin-bottom: 0.5em; /* 改行ごとの隙間を少し詰める */
+}
+
+/* 投稿フォーム専用のスタイル */
+.recipe-form-card {
+    max-width: 650px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px 40px;
+}
+
+.custom-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* 幅のズレ防止 */
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-submit {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: #444; /* 検索ボタンと同じ色 */
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}

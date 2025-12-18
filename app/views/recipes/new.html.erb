@@ -1,39 +1,52 @@
-<h1>mogumogucircle</h1>
-<h3>新規レシピ</h3>
+<div class="diagnosis-page">
+  <header class="tomato-header">
+    <%= image_tag "tomato.png", class: "header-image" %>
+    <div class="header-content">
+      <h1 class="logo-text">Mogumogucircle</h1>
+      <%= link_to '一覧に戻る', recipes_path, class: "logout-btn" %>
+    </div>
+  </header>
 
-<%= form_for @recipe do |f| %>
+  <div class="diagnosis-container">
+    <div class="glass-card recipe-form-card">
+      <h2 class="main-title">新規レシピ投稿</h2>
 
-  <div class="field">
-    <%= f.label :料理名 %>
-    <%= f.text_field :name, size: 30 %>
+      <%= form_with(model: @recipe, local: true, class: "custom-form") do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "料理名" %>
+          <%= f.text_field :name, placeholder: "例：回鍋肉", class: "form-control" %>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <%= f.label :cost, "費用（円）" %>
+            <%= f.number_field :cost, placeholder: "300", class: "form-control" %>
+          </div>
+          <div class="form-group half">
+            <%= f.label :time, "時間（分）" %>
+            <%= f.number_field :time, placeholder: "15", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :material, "材料" %>
+          <%= f.text_area :material, placeholder: "豚こま肉 80g\nキャベツ 1/8個", rows: 5, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :process, "作り方・手順" %>
+          <%= f.text_area :process, placeholder: "1. 野菜を切る\n2. 肉を炒める", rows: 8, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image, "料理の写真" %>
+          <%= f.file_field :image, class: "form-control-file" %>
+        </div>
+
+        <div class="form-submit">
+          <%= f.submit "レシピを投稿する", class: "submit-btn" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :材料 %>
-    <%= f.text_field :material, size: 20 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :費用 %>
-    <%= f.number_field :cost %>
-  </div>
-
-  <div class="field">
-    <%= f.label :時間 %>
-    <%= f.number_field :time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :手順 %>
-    <%= f.text_area :process, size: "30x2" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :画像 %>
-    <%= f.file_field :image %>
-  </div>
-
-  <%= f.submit "レシピを投稿する" %>
-<% end %>
-
-<%= link_to "レシピ一覧に戻る", recipes_path %>
+</div>

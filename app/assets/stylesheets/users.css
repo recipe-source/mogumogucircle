@@ -210,3 +210,96 @@
     display: block;
 }
 
+/* レシピ一覧用の調整 */
+.recipe-index-card {
+    max-width: 1100px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.recipe-box {
+    background: white;
+    border-radius: 15px;
+    width: 240px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.recipe-box:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recipe-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.like-badge {
+    background: #ff6b6b;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.food-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.recipe-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.action-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.action-link.delete {
+    color: #ff4d4d;
+}
+
+.search-input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+.search-btn {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+
+

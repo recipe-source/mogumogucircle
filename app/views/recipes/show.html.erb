@@ -1,33 +1,79 @@
-<h1>おすすめレシピ</h1>
-<h3>Recipe詳細</h3>
-<div class="recipe">
-  <p><%= @recipe.name %></p>
-  <p><%= @recipe.material %></p>
-  <p><%= @recipe.cost %></p>
-  <p><%= @recipe.time %></p>
-  <p><%= @recipe.process %></p>
-  <p><%= @recipe.created_at %></p>
-    <% if user_signed_in? %>
-      <% if current_user.already_liked?(@recipe) %>
-        <%= link_to recipe_like_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :delete } do %>
-            <p>いいねを取り消す</p><%= @recipe.likes.count %>
+<div class="diagnosis-page">
+  <header class="tomato-header">
+    <%= image_tag "tomato.png", class: "header-image" %>
+    <div class="header-content">
+      <h1 class="logo-text">Mogumogucircle</h1>
+      <%= link_to '一覧に戻る', recipes_path, class: "logout-btn" %>
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo: false }, class: "logout-btn" %>
+    </div>
+    </div>
+  </header>
+
+  <div class="diagnosis-container">
+    <div class="glass-card recipe-show-card">
+    <div class="recipe-top-section">
+      <div class="recipe-visual">
+        <h2 class="recipe-title-display"><%= @recipe.name %></h2>
+        <div class="main-image-wrapper">
+          <% if @recipe.image.attached? %>
+            <%= image_tag @recipe.image, class: "show-food-img" %>
+          <% else %>
+            <div class="no-image-placeholder">No Image</div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="recipe-meta-info">
+        <div class="meta-item">
+          <span class="label">費用：</span>
+          <span class="value"><%= @recipe.cost %>円</span>
+        </div>
+        <div class="meta-item">
+          <span class="label">時間：</span>
+          <span class="value"><%= @recipe.time %>分</span>
+        </div>
+        
+        <div class="ingredients-box">
+          <h3 class="sub-caption">材料</h3>
+          <div class="text-content">
+            <%# 行間を詰めるため simple_format ではなく safe_join を使います %>
+            <%= safe_join(@recipe.material.split("\n"), tag(:br)) if @recipe.material.present? %>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div class="recipe-bottom-section">
+      <hr class="divider">
+      <h3 class="sub-caption">作り方</h3>
+      <div class="process-text">
+        <%= simple_format(@recipe.process) if @recipe.process.present? %>
+      </div>
+    </div>
+
+      <div class="recipe-actions">
+        <div class="like-section">
+          <% if user_signed_in? %>
+            <% if current_user.already_liked?(@recipe) %>
+              <%= link_to recipe_like_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :delete }, class: "like-btn active" do %>
+                ♥ いいねを取り消す <span class="count"><%= @recipe.likes.count %></span>
+              <% end %>
+            <% else %>
+              <%= link_to recipe_likes_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :post }, class: "like-btn" do %>
+                ♡ いいね <span class="count"><%= @recipe.likes.count %></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <% if user_signed_in? && current_user.id == @recipe.user_id %>
+          <div class="owner-controls">
+            <%= link_to "編集", edit_recipe_path(@recipe.id), class: "action-link" %>
+            <%= link_to "削除", recipe_path(@recipe.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "action-link delete" %>
+          </div>
         <% end %>
-      <% else %>
-       <%= link_to recipe_likes_path(id: @recipe.id, recipe_id: @recipe.id), data: { turbo_method: :post }  do %>
-            <p>いいね</p><%= @recipe.likes.count %>
-       <% end %>
-      <% end %>
-    <% else %>
-      <p>いいねの数 = </p><%= @recipe.likes.count %>
-    <% end %>
-  <%= link_to "編集する", edit_recipe_path(@recipe.id) %>
+      </div>
+      
+    </div>
+  </div>
 </div>
-
-<h2>いいねしたユーザー</h2>
-<% @recipe.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
-
-<%= link_to "Recipe一覧に戻る", recipes_path %>
-
-

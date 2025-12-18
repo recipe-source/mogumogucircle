@@ -1,4 +1,17 @@
 <%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+  <div class="diagnosis-page">
+   <header class="tomato-header"> 
+      <%= image_tag "tomato.png", class: "header-image" %>
+      <div class="header-content">
+        <h1 class="logo-text">Mogumogucircle</h1>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      </div>
+    </header>
+
+    <div class="diagnosis-container"> <%# ← 追記：中央配置用 %>
+      <div class="glass-card"> <%# ← 追記：白いカード部分 %>
+        <p class="section-title">条件選択</p>
+
     <div class="perfume-container">
         <div class="col-12">
             <p>Q1. 費用</p>

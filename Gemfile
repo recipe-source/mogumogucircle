@@ -36,7 +36,6 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem 'sqlite3' # 追加
-  gem 'dotenv-rails' # 追加
 end
 
 group :development, :test do
@@ -53,6 +52,11 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'devise'
+
+  gem 'dotenv-rails'
+  gem 'cloudinary'
+  gem 'activestorage-cloudinary-service'
 end
 
 group :test do
@@ -61,11 +65,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'devise'
 
-gem 'dotenv-rails'
-gem 'cloudinary'
-gem 'activestorage-cloudinary-service'
 
 # PostgreSQL → 本番用
 group :production do

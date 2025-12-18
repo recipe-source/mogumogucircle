@@ -1,100 +1,103 @@
+<header>
+  <h1 class="site-logo">Mogumogucircle</h1>
+  <div class="header-list">
+   <nav class="nav-links">
+    <ul>
+     <% if user_signed_in? %>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+     <% else %>
+      <li><%= link_to "▷新規登録", new_user_registration_path %></li>
+      <li><%= link_to "▷ログイン", new_user_session_path %></li>
+     <% end %>
+    </ul>
+     <p><%= link_to "▷時間と費用からレシピを探す", new_perfume_path %></p>
+    </ul>
+   </nav>
+  </div>
+ </header>
+ 
 <div class="tweets-container">
+ 
+  <% if user_signed_in? %>
+    <%# ------------------------------------------------------------ %>
+    <%# ② ログインしている時：レシピ一覧を表示 %>
+    <%# ------------------------------------------------------------ %>
+    <div class="recipe-index-container">
+      <h2 class="page-title">Recipe一覧</h2>
 
-<% unless user_signed_in? %>
-<p class="introduction-message">
-　コンビニや外食に<br>頼りがちな学生に
-</p>
-
-<p class="body-message">
-　健康に
-</p>
-
-<p class="conclusion-message">
-　おいしく
-</p>
-
-<p class="a-message">
-　♢♢♢
-</p>
-
-<p class="b-message">
-　♢♢♢
-</p>
-
-<p class="c-message">
-　♢♢♢
-</p>
-
-<%= image_tag "chicken.png", class: "top-page-decoration" %>
-<%= image_tag "curry.png", class: "a-decoration" %>
-<%= image_tag "ham.png", class: "b-decoration" %>
-<%= image_tag "kitchen.png", class: "c-decoration" %>
-<%= image_tag "miso.png", class: "d-decoration" %>
-<%= image_tag "nikujaga.png", class: "e-decoration" %>
-<%= image_tag "obento.png", class: "f-decoration" %>
-<%= image_tag "oyakodon.png", class: "g-decoration" %>
-<%= image_tag "pasta.png", class: "h-decoration" %>
-<%= image_tag "salad.png", class: "i-decoration" %>
-<%= image_tag "sope.png", class: "j-decoration" %>
-<%= image_tag "soup.png", class: "k-decoration" %>
-<%= image_tag "thai.png", class: "l-decoration" %>
-<%= image_tag "white.png", class: "m-decoration" %>
-<% end %>
-
-<% if user_signed_in? %>
-<h3>Recipe一覧</h3>
-<% end %>
-
-<% if user_signed_in? %>
- <h3>投稿を検索</h3>
-  <%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag '検索する'  %>
- <% end %>
-<% end %>
-
-<% if user_signed_in? %>
- <%= link_to "新規投稿へ", new_recipe_path %>
-<% end %>
-
-<% if user_signed_in? %>
- <% @recipes.each do |t| %>
-
-   <div class="like-section">
-      <% if user_signed_in? %>
-
-        <% if current_user.already_liked?(t) %>
-           <%= link_to recipe_like_path(id: t.id, recipe_id: t.id), data: { turbo_method: :delete } do %>
-               <p>いいねを取り消す</p><%= t.likes.count %>
-           <% end %>
-
-        <% else %>
-
-           <%= link_to recipe_likes_path(id: t.id, recipe_id: t.id), data: { turbo_method: :post }  do %>
-               <p>いいね</p><%= t.likes.count %>
-           <% end %>
+      <div class="index-controls">
+        <%= form_tag({controller:"recipes",action:"index"}, method: :get, class: "search-bar") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "レシピを検索..." %>
+          <%= submit_tag '検索' %>
         <% end %>
+        <%= link_to "新規投稿へ", new_recipe_path, class: "new-recipe-link" %>
+      </div>
 
-      <% else %>
-        <p>いいねの数 = </p><%= t.likes.count %>
-      <% end %>
+      <div class="recipe-grid">
+        <% @recipes.each do |t| %>
+          <div class="recipe-card">
+            <div class="card-visual">
+              <% if t.image.attached? %>
+                <%= image_tag t.image, class: "recipe-img" %>
+              <% else %>
+                <div class="no-image-placeholder">No Image</div>
+              <% end %>
 
-        <% if t.image.attached? %>
-            <%= image_tag t.image, size: '250x200'%>
+              <div class="like-badge-wrapper">
+                <% if current_user.already_liked?(t) %>
+                  <%= link_to recipe_like_path(id: t.id, recipe_id: t.id), data: { turbo_method: :delete }, class: "like-badge liked" do %>
+                    いいね <span class="count"><%= t.likes.count %></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to recipe_likes_path(id: t.id, recipe_id: t.id), data: { turbo_method: :post }, class: "like-badge" do %>
+                    いいね <span class="count"><%= t.likes.count %></span>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="card-info">
+              <h3 class="recipe-name"><%= t.name %></h3>
+              <div class="card-actions">
+                <%= link_to "詳細へ", recipe_path(t.id), class: "detail-link" %>
+                <div class="owner-menu">
+                  <% if current_user.id == t.user_id %>
+                    <%= link_to "編集", edit_recipe_path(t.id) %>
+                    <%= link_to '削除', recipe_path(t.id), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' }, class: "delete-text" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-    
-        <%= t.name %>
-        <%# <%= t.material %>
-        <%# <%= t.process %>
-        <%# <%= t.cost %>
-        <%# <%= t.time %>
-        <%# <%= t.created_at %>
+      </div>
+    </div>
 
-        <%= link_to "詳細へ", recipe_path(t.id) %>
-        <%= link_to "編集する", edit_recipe_path(t.id) %>
-        <%= link_to '削除する', recipe_path(t.id), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
-       </div>
-    <%# <%= t.user.email %>
+  <% else %>
+    <%# ------------------------------------------------------------ %>
+    <%# ① ログインしていない時：紹介メッセージを表示 %>
+    <%# ------------------------------------------------------------ %>
+    <p class="introduction-message">コンビニや外食に<br>頼りがちな学生に</p>
+    <p class="body-message">健康に</p>
+    <p class="conclusion-message">おいしく</p>
+    <p class="a-message">♢♢♢</p>
+    <p class="b-message">♢♢♢</p>
+    <p class="c-message">♢♢♢</p>
 
- <% end %>
-<% end %>
+    <%= image_tag "chicken.png", class: "top-page-decoration" %>
+    <%= image_tag "curry.png", class: "a-decoration" %>
+    <%= image_tag "ham.png", class: "b-decoration" %>
+    <%= image_tag "kitchen.png", class: "c-decoration" %>
+    <%= image_tag "miso.png", class: "d-decoration" %>
+    <%= image_tag "nikujaga.png", class: "e-decoration" %>
+    <%= image_tag "obento.png", class: "f-decoration" %>
+    <%= image_tag "oyakodon.png", class: "g-decoration" %>
+    <%= image_tag "pasta.png", class: "h-decoration" %>
+    <%= image_tag "salad.png", class: "i-decoration" %>
+    <%= image_tag "sope.png", class: "j-decoration" %>
+    <%= image_tag "soup.png", class: "k-decoration" %>
+    <%= image_tag "thai.png", class: "l-decoration" %>
+    <%= image_tag "white.png", class: "m-decoration" %>
+  <% end %>
+
+</div>
